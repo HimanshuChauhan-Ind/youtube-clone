@@ -6,7 +6,7 @@ const Body = () => {
   return (
     <>
       <Header />
-      <div className="flex">
+      <div className="flex ">
         <Sidebar />
         <Mainbody />
       </div>
