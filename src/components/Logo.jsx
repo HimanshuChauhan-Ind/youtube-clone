@@ -1,9 +1,23 @@
+import { useDispatch } from "react-redux";
 import { BURGER_MENU, YT_LOGO } from "../assets/constants";
+import { toggleSidebar } from "../assets/Store/appconfig";
 
 const Logo = () => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    console.log("clicked");
+    dispatch(toggleSidebar());
+  };
+
   return (
     <div className="flex">
-      <img className="w-9 cursor-pointer " src={BURGER_MENU} alt="options" />
+      <img
+        onClick={handleClick}
+        className="w-9 cursor-pointer "
+        src={BURGER_MENU}
+        alt="options"
+      />
       <img className="w-20 h-auto ml-4" src={YT_LOGO} alt="youtube logo"></img>
     </div>
   );
