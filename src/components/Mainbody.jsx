@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import VideoItem from "./VideoItem";
+import { Link } from "react-router-dom";
 
 const Mainbody = () => {
   const [videos, setVideos] = useState(null);
@@ -21,9 +22,11 @@ const Mainbody = () => {
 
   return (
     videos && (
-      <div className="flex gap-2 p-2 flex-wrap justify-center">
+      <div className="flex gap-2 p-2 flex-wrap justify-center ">
         {videos.map((video) => (
-          <VideoItem info={video} />
+          <Link key={video.id} to={"watch/?v=" + video.id}>
+            <VideoItem info={video} />
+          </Link>
         ))}
       </div>
     )

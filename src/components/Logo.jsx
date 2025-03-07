@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { BURGER_MENU, YT_LOGO } from "../assets/constants";
 import { toggleSidebar } from "../assets/Store/appconfig";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,13 @@ const Logo = () => {
         src={BURGER_MENU}
         alt="options"
       />
-      <img className="w-20 h-auto ml-4" src={YT_LOGO} alt="youtube logo"></img>
+      <Link to={"/"}>
+        <img
+          className="w-20 h-auto ml-4 cursor-pointer"
+          src={YT_LOGO}
+          alt="youtube logo"
+        ></img>
+      </Link>
     </div>
   );
 };
