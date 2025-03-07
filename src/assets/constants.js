@@ -9,3 +9,6 @@ export const SEARCH_LOGO =
 
 export const USER_LOGO =
   "https://img.icons8.com/?size=100&id=84020&format=png&color=000000";
+
+export const YOUTUBE_SEARCH =
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";

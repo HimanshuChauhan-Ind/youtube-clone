@@ -1,7 +1,6 @@
 import getDuration from "../assets/getDuration";
 
 const VideoItem = ({ info }) => {
-  console.log(info);
   if (!info) return;
   const { snippet, statistics } = info;
   return (

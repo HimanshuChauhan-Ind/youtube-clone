@@ -7,7 +7,6 @@ const Logo = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    console.log("clicked");
     dispatch(toggleSidebar());
   };
 
