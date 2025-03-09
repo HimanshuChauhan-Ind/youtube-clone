@@ -1,14 +1,25 @@
 import { useEffect, useState } from "react";
 import { SEARCH_LOGO, USER_LOGO, YOUTUBE_SEARCH } from "../assets/constants";
 import Logo from "./Logo";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchData } from "../assets/Store/searchSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
 
+  const searchCache = useSelector((state) => state.search[searchQuery]);
+
   useEffect(() => {
-    const timer = setTimeout(() => getSearchResults(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache) {
+        setSearchResult(searchCache);
+      } else {
+        getSearchResults();
+      }
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -19,6 +30,7 @@ const Header = () => {
     const response = await fetch(YOUTUBE_SEARCH + searchQuery);
     const data = await response.json();
     setSearchResult(data[1]);
+    dispatch(setSearchData({ [searchQuery]: data[1] }));
   };
 
   return (
